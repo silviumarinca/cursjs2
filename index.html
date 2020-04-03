@@ -1,11 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      function CursValutar(args, moneda, suma, rezultat) {
+        let valoare_curs = 0;
+        switch (moneda) {
+          case "USD":
+            valoare_curs = 4.3637;
+            break;
+          case "EUR":
+            valoare_curs = 4.8297;
+            break;
+          case "HUF":
+            valoare_curs = 1.3503;
+            break;
+          default:
+            throw new Error("Curs valutar inexistent!!");
+        }
+
+        rezultat = ((suma * valoare_curs * 100) / 100).toFixed(2);
+
+        console.log(args[0] + moneda + args[1] + suma + args[2] + rezultat);
+      }
+      /*
+      Exercitiul 1
+      Folosind switch statement transformati urmatoarea suma din 749 RON in EUR, HUF, USD.
+
+      */
+      const preturi = [
+        { valoare: 749, moneda: "EUR" },
+        {
+          valoare: 749,
+          moneda: "USD"
+        },
+        {
+          valoare: 749,
+          moneda: "HUF"
+        }
+      ];
+      let rezultat = 0;
+      preturi.forEach(value => {
+        CursValutar`Valoarea in ${value.moneda} pentru suma ${value.valoare} este ${rezultat} `;
+      });
+      //exercitiu 2
+      function returnParametru(x) {
+        return typeof x;
+      }
+      console.log(`--------exercitiu 2----------`);
+      console.log(`Tipul obiectului x='2' este ${returnParametru("2")}`);
+      console.log(`Tipul obiectului x=2 este ${returnParametru(2)}`);
+      console.log(`Tipul obiectului x=null este ${returnParametru(null)}`);
+      console.log(`Tipul obiectului x=Set este ${returnParametru(new Set())}`);
+
+      //Exercitiul 3.1
+      console.log(`--------exercitiu 3----------`);
+      function ExtragerePrimaLitera(word) {
+        return Array.prototype.join.call(word.match(/\b(\w)/g), "");
+      }
+      const word = "Universitatea Tehnica Cluj Napoca";
+      console.log("rezultatul este " + ExtragerePrimaLitera(word));
+      /// exercitiul 3.2
+      const fraze = [
+        "Quisque faucibus ipsum id nibh egestas bibendum.",
+        "Phasellus tincidunt sapien nec est tempus lacinia.",
+        "Curabitur ac elit at turpis ultrices hendrerit at et tellus.",
+        "Praesent a magna a ligula gravida sodales eu ut erat.",
+        "Ut eleifend velit vitae ipsum mattis viverra."
+      ];
+      fraze.forEach(value =>
+        console.log(`"${value}" =>${ExtragerePrimaLitera(value)}`)
+      );
+
+      /// exercitiul 4
+      console.log(`--------exercitiu 4----------`);
+      class Shape {
+        constructor(culoare, laturi) {
+          this.culoare = culoare;
+          this.laturi = laturi;
+
+        }
+        Perimetru(){
+          return this.laturi.reduce((prev,curr)=>prev+curr);
+        }
+        SemiPerimetru(){
+          return this.Perimetru()/2;
+        }
+        TipPoligon(){
+            let tip='';
+          switch(this.laturi.length){
+               case 3: tip='Triunghi';break;
+               case 4: tip='Patrulater';break;
+               case 5: tip='Pentagon';break;
+               case 6: tip='Hexagon';break;
+              default: tip= 'Work in progress!!';break;
+          }
+          return tip;
+        }
+
+      }
+      class TriunghiEchilateral extends Shape{
+        constructor(culoare, latura){
+         super(culoare,[latura,latura,latura]);
+
+        }
+        Aria(){
+           return ((this.laturi[0]**2*Math.sqrt(3)/4)*100/100).toFixed(2)
+
+        }
+        TipPoligon(){
+          return 'Triunghi Echilateral'
+        }
+      }
+      class Patrat extends Shape{
+        constructor(culoare, latura){
+         super(culoare,[latura,latura,latura,latura]);
+
+        }
+        TipPoligon(){
+          return 'Patrat'
+        }
+        Aria(){
+           return ((this.laturi[0]**2)*100/100).toFixed(2)
+
+        }
+
+      }
+
+     const poligon= new Shape('Albastru',[1,2,3]);
+            console.log(`Tipul poligonului este ${poligon.TipPoligon()} avand culoarea ${poligon.culoare} \n Perimetru este ${poligon.Perimetru()} Semiperimetru este ${poligon.SemiPerimetru()}`)
+
+            const triunghi= new TriunghiEchilateral('galben',2);
+            console.log('-----------Exercitiul 5----------------')
+            console.log(`Tipul poligonului este ${triunghi.TipPoligon()} avand culoarea ${triunghi.culoare} \n Perimetru este ${triunghi.Perimetru()}
+                        Semiperimetru este ${triunghi.SemiPerimetru()} 
+                        Aria este ${triunghi.Aria()}`)
+            const patrat= new Patrat('Verde',2);
+            console.log(`Tipul poligonului este ${patrat.TipPoligon()} avand culoarea ${patrat.culoare} \n Perimetru este ${patrat.Perimetru()}
+                         Semiperimetru este ${patrat.SemiPerimetru()} Aria este ${patrat.Aria()}`)
+
+    </script>
+  </body>
 </html>
