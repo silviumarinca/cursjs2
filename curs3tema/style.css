@@ -1,0 +1,25 @@
+#container, #second_container{
+   border:1px solid black;
+   width:400px;
+   height:400px;
+
+}
+
+.exercises{
+  display: flex;
+  flex-flow:row;
+  align-items: left;
+
+}
+
+ul{
+  display:flex;
+ list-style-type:none; 
+}
+ul h1 {
+  font-size:15px;
+
+}
+ul li{
+  padding:5px;
+}
