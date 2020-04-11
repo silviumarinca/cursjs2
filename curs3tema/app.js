@@ -11,11 +11,19 @@
     ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
     ctx.fillStyle = "yellow";
     ctx.fill();
-
+    ctx.stroke();
     // Mouth (clockwise)
-    ctx.moveTo(110, 75);
-    ctx.arc(75, 75, 35, 0, Math.PI, false);
-    //left eye
+     
+    // ctx.arc(75, 75, 35, 0, Math.PI, false);
+    ctx.beginPath();
+ 
+    ctx.ellipse(75, 80, 40, 30, Math.PI * 1, 0, Math.PI, true);
+   
+    ctx.stroke();
+    ctx.fillStyle = 'green'; 
+    ctx.fill();
+    ctx.closePath();
+    // //left eye
     ctx.moveTo(70, 55);
     ctx.arc(60, 55, 10, 0, Math.PI * 2, true);
 
@@ -23,14 +31,18 @@
     ctx.arc(60, 55, 2, 0, Math.PI * 2, true);
     ctx.fillStyle = "red";
     ctx.fill();
-    // Right eye
+    // // Right eye
+    ctx.stroke();
     ctx.moveTo(100, 55);
+    ctx.beginPath()
     ctx.arc(90, 55, 10, 0, Math.PI * 2, true);
-
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.stroke();
     ctx.moveTo(92, 55);
     ctx.arc(90, 55, 2, 0, Math.PI * 2, true);
 
-    ctx.stroke();
+   ctx.stroke();
   })(context);
   //Exercitiul 2
 
