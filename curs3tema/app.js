@@ -55,7 +55,6 @@ class Circle {
     this.radius = radius;
     this.color = color;
     this.dx = 1;
-    this.dy = 1;
     this.increaseDiameter = 0;
     this.isleft = false;
     if (headLeft) this.goLeft();
@@ -70,49 +69,54 @@ class Circle {
     context2.fill();
     context2.closePath();
   }
+  performMovingOnEndings(stepX){
+   /// console.log(this.x+stepX-canvas2.width-this.radius);
+     this.x += stepX*this.dx; 
 
-  move(stepX, stepY) {
-    //Problem whem moving and step is larger than radix
+  
+  }
+  move(stepX) {
+
     this.modifyDiameter();
+    
     this.changeDirectionIfExceededBounds(); // The movement is made only left and right
-    this.x += stepX * this.dx; // this.x = this.x + stepX;
-    this.y += stepY * this.dy;
+    this.performMovingOnEndings(stepX)
+    // this.x = this.x + stepX;
+  
     this.draw();
   }
 
-  modifyDiameter() {
-    if (this.radius > 1) {
-      this.radius += this.increaseDiameter;
-    }
+  modifyDiameter() { 
+    if(!(this.x + this.radius >= canvas2.width || this.x - this.radius <= 0 ) ){
+   
+       if (this.radius > 1) {
+         this.radius += this.increaseDiameter;
+       } 
+     }  
   }
 
   goLeft() {
     this.color = "Green";
-    this.increaseDiameter = -1;
+    this.increaseDiameter = -5 ;
   }
   goRight() {
     this.color = "yellow";
-    this.increaseDiameter = 1;
+    this.increaseDiameter = 5 ;
   }
-  changeDirectionIfExceededBounds() {
+  changeDirectionIfExceededBounds() { 
     if (this.x >= canvas2.width - this.radius) {
       this.dx = -1;
       this.goLeft();
     }
-    if (this.y >= canvas2.height - this.radius) {
-      this.dy = -1;
-    }
+
     if (this.x <= this.radius) {
       this.dx = 1;
       this.goRight();
     }
-    if (this.y <= this.radius) {
-      this.dy = 1;
-    }
   }
 }
 
-let circle = new Circle(30, 100, 30, "green", false, context2);
+let circle = new Circle(20, 100, 60, "green", false, context2);
 circle.draw();
 
 function moveItems() {
@@ -120,4 +124,5 @@ function moveItems() {
   circle.move(10, 0);
 }
 
-window.setInterval(moveItems, 50);
+var x=window.setInterval(moveItems, 500);
+ 
