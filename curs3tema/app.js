@@ -69,41 +69,37 @@ class Circle {
     context2.fill();
     context2.closePath();
   }
-  performMovingOnEndings(stepX){
-   /// console.log(this.x+stepX-canvas2.width-this.radius);
-     this.x += stepX*this.dx; 
-
-  
+  performMovingOnEndings(stepX) {
+    /// console.log(this.x+stepX-canvas2.width-this.radius);
+    this.x += stepX * this.dx;
   }
   move(stepX) {
-
     this.modifyDiameter();
-    
+
     this.changeDirectionIfExceededBounds(); // The movement is made only left and right
-    this.performMovingOnEndings(stepX)
+    this.performMovingOnEndings(stepX);
     // this.x = this.x + stepX;
-  
+
     this.draw();
   }
 
-  modifyDiameter() { 
-    if(!(this.x + this.radius >= canvas2.width || this.x - this.radius <= 0 ) ){
-   
-       if (this.radius > 1) {
-         this.radius += this.increaseDiameter;
-       } 
-     }  
+  modifyDiameter() {
+    if (!(this.x + this.radius >= canvas2.width || this.x - this.radius <= 0)) {
+      if (this.radius > 1) {
+        this.radius += this.increaseDiameter;
+      }
+    }
   }
 
   goLeft() {
     this.color = "Green";
-    this.increaseDiameter = -5 ;
+    this.increaseDiameter = -5;
   }
   goRight() {
     this.color = "yellow";
-    this.increaseDiameter = 5 ;
+    this.increaseDiameter = 5;
   }
-  changeDirectionIfExceededBounds() { 
+  changeDirectionIfExceededBounds() {
     if (this.x >= canvas2.width - this.radius) {
       this.dx = -1;
       this.goLeft();
@@ -124,5 +120,4 @@ function moveItems() {
   circle.move(10, 0);
 }
 
-var x=window.setInterval(moveItems, 500);
- 
+var x = window.setInterval(moveItems, 500);

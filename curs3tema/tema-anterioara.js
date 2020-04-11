@@ -45,21 +45,21 @@ class TriunghiEchilateral extends Shape {
     return "Triunghi Echilateral";
   }
 
-  Draw(ctx, x,y) {
+  Draw(ctx, x, y) {
     ctx.translate(x, y);
     var h = this.latura * (Math.sqrt(3) / 2);
     ctx.beginPath();
-        
+
     ctx.moveTo(0, -h / 2);
-    ctx.lineTo( -this.latura / 2, h / 2);
+    ctx.lineTo(-this.latura / 2, h / 2);
     ctx.lineTo(this.latura / 2, h / 2);
     //ctx.lineTo(0, -h / 2);
     ctx.closePath();
     ctx.stroke();
-    ctx.fillStyle=this.culoare;
-    ctx.fill(); 
-    
-   ctx.closePath();
+    ctx.fillStyle = this.culoare;
+    ctx.fill();
+
+    ctx.closePath();
   }
 }
 class Patrat extends Shape {
