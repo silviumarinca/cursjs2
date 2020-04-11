@@ -49,16 +49,15 @@ const context2 = canvas2.getContext("2d");
 canvas2.width = container2.clientWidth;
 canvas2.height = container2.clientHeight;
 class Circle {
-  constructor(x, y, radius, color, headLeft) {
+  constructor(x, y, radius, color) {
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.color = color;
     this.dx = 1;
-    this.increaseDiameter = 0;
-    this.isleft = false;
-    if (headLeft) this.goLeft();
-    else this.goRight();
+    this.diameter = 0;
+   
+     this.increaseDiameter();
   }
 
   draw() {
@@ -86,33 +85,33 @@ class Circle {
   modifyDiameter() {
     if (!(this.x + this.radius >= canvas2.width || this.x - this.radius <= 0)) {
       if (this.radius > 1) {
-        this.radius += this.increaseDiameter;
+        this.radius += this.diameter;
       }
     }
   }
 
-  goLeft() {
+  decreaseDiameter() {
     this.color = "Green";
-    this.increaseDiameter = -5;
+    this.diameter = -5;
   }
-  goRight() {
+ increaseDiameter() {
     this.color = "yellow";
-    this.increaseDiameter = 5;
+    this.diameter = 5;
   }
   changeDirectionIfExceededBounds() {
     if (this.x >= canvas2.width - this.radius) {
       this.dx = -1;
-      this.goLeft();
+      this.decreaseDiameter();
     }
 
     if (this.x <= this.radius) {
       this.dx = 1;
-      this.goRight();
+      this.increaseDiameter();
     }
   }
 }
 
-let circle = new Circle(20, 100, 60, "green", false, context2);
+let circle = new Circle(20, 200, 60, "green", context2);
 circle.draw();
 
 function moveItems() {
