@@ -97,7 +97,7 @@ class Circle {
   modifyDiameter() {
     if (!(this.x + this.radius >= canvas2.width || this.x - this.radius <= 0)) {
      
-      if (this.radius > 5|| this.diameter>0) {
+      if (this.radius > 1|| this.diameter>0) {
         this.radius += this.diameter;
       }
     }else{ console.log("Capat");}
@@ -124,7 +124,7 @@ class Circle {
   }
 }
 
-let circle = new Circle(20, 200, 20, "green", context2);
+let circle = new Circle(60, 200, 20, "green", context2);
 circle.draw();
 
 function moveItems() {
