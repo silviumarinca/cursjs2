@@ -46,7 +46,7 @@ class Square extends Cell{
 
 class Square2Cells{
   
-    constructor(row,col,numcell){
+    constructor(row,col,numcell=2){
         //super(row,col,'green',myctx) 
       this.row=row;
       this.col=col;
