@@ -43,9 +43,37 @@ class Square extends Cell{
     
 
 }
+
+class Square2Cells{
+  
+    constructor(row,col,numcell){
+        //super(row,col,'green',myctx) 
+      this.row=row;
+      this.col=col;
+      this.numcell=numcell;
+    } 
+    draw(){
+      
+      for(let i=0;i<this.numcell;i++){
+        for(let j=0;j<this.numcell;j++){
+           new  Cell(this.row+i,this.col+j,'yellow',myctx)
+                .draw();
+        }
+
+      }
+
+    }
+    
+
+}
 //exercitiu5
 var canvassquares=document.getElementById("canvasdrawSquares");
 var myctx=canvassquares.getContext("2d");
 var square =new Square(2,3);
 square.draw();
 var sq2=new Square(5,7); sq2.draw()
+
+var sq3=new Square2Cells(1,1,3); sq3.draw()
+var sq3=new Square2Cells(7,1,2); sq3.draw()
+
+var sq3=new Square2Cells(9,2,4); sq3.draw()

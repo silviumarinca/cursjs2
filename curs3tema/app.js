@@ -123,7 +123,7 @@ class Circle {
   }
 }
 
-let circle = new Circle(20, 200, 60, "green", context2);
+let circle = new Circle(60, 200, 60, "green", context2);
 circle.draw();
 
 function moveItems() {
