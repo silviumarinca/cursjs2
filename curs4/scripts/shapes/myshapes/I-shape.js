@@ -7,7 +7,9 @@ export class I extends  Shape {
               [
                 [1],
                 [1],
-                [1]],
+                [1],
+                [1]
+            ],
                 cells,
                 "magenta")
       
