@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="main.js" type="module"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="game_name">
+          <div class="overlay">
+            <h1>Tetris game</h1>
+          </div>
+       
+      </div>
+      <div class="tetris_board">
+        <div id="content">
+          <canvas
+            id="canvasId"
+            width="300px"
+            height="600px"
+            style="border: 1px solid;"
+          ></canvas>
+        </div>
+      </div>
+      <div class="game_controls">
+        <ul class="scoreBoard">
+          <li>
+            <p id="scorePlaceholder">Score <strong id="score">0</strong></p>
+          </li>
+            <li style="display:flex;justify-content: space-around;">
+                <div class="item_title"><h3>Next Shape</h3></div>
+                <div class="next_shape">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                </div>
+            </li>
+          <li>
+            <button id="startGame" class="game_start_btn">Start Game</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

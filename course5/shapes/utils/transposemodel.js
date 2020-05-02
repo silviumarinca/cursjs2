@@ -19,7 +19,7 @@ export function GenerateTransposeModels(model) {
   transposeModel.push(model); //modelele initiale
   let numOfModel = 0;
   while (numOfModel < 3) {
-    transposeModel.push(Transpose(transposeModel[numOfModel], 1));//e mai eficient sa fac transpusa elementului anterior
+    transposeModel.push(Transpose(transposeModel[numOfModel], 1)); //e mai eficient sa fac transpusa elementului anterior
     numOfModel++;
   }
   return transposeModel;
