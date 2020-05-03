@@ -79,7 +79,7 @@ document.addEventListener("keydown", event => {
 
 const animate = () => {
     if (movement.canMove) {
-        movement.down(intervalId,gameOverfunc.bind({},startGame));
+         movement.down(intervalId,gameOverfunc.bind({},startGame));
         console.log('Moving');
     } else {
         console.log('Stopped');

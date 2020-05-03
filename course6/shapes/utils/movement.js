@@ -19,6 +19,7 @@ export class Movement {
        
 
     }
+
     down(intervalId,gameOverfunc) {
         const { row, column } = this.shape;
          if(!this.shapeInit && !this.shape.canBeCleared()){ 
@@ -45,11 +46,12 @@ export class Movement {
     }
 
     left() {
+        if(!this.shapeInit) return;
         const {row , column} = this.shape;
         this.shape.clear();
 
         const nextNotAvailable = this.validator.checkNext(row, column - 1);
-        if (nextNotAvailable) {
+        if (nextNotAvailable ) {
             this.shape.draw();
             return;
         }
@@ -59,6 +61,7 @@ export class Movement {
     }
 
     right() {
+        if(!this.shapeInit) return;
         const {row , column} = this.shape;
         this.shape.clear();
 
