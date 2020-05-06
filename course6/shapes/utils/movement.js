@@ -76,6 +76,7 @@ export class Movement {
     }
 
     rotate() {
+        if(!this.shapeInit) return;
         const {row , column} = this.shape;
 
         this.shape.clear();
